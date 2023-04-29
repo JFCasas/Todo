@@ -4,6 +4,25 @@ var User = require('../models/User.js')
 
 var router = express.Router()
 
+//Recuperar usuarios
+
+//Recuperar todas las tareas
+
+router.get('/', (req, res) => {
+
+    User.find()
+
+        .then((docs) => {
+
+            res.render('user.ejs', {users: docs, user: req.session.name})
+
+        }).catch((err) => {
+
+            console.log(err)
+            res.json(err)
+        })
+})
+
 //Crear Usuario
 
 router.post('/', (req, res) => {
@@ -12,7 +31,7 @@ router.post('/', (req, res) => {
         name: req.body.name,
         password: req.body.password
     }).then((doc) => {
-        res.redirect('/')
+        res.redirect('/user')
         //res.json(doc)
         //console.log(doc)
     }).catch((err) => {
@@ -20,7 +39,19 @@ router.post('/', (req, res) => {
     })
 })
 
+//Eliminar un usuario
 
+router.get('/delete/:id',(req,res)=>{
+
+    User.findByIdAndRemove(req.params.id)
+
+        .then(() => res.redirect('/user'))
+        .catch((err)=>{
+
+			console.log(err)
+			res.json(err)
+	    })
+});
 
 
 module.exports = router;
