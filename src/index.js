@@ -10,7 +10,7 @@ require('dotenv').config()
 
 //mongoose.connect('mongodb://localhost:27017/todo')
 
-/* mongoose
+mongoose
     .connect(process.env.MONGODB_URI, {
       dbName: process.env.DB_NAME
       //user: process.env.DB_USER,
@@ -18,11 +18,11 @@ require('dotenv').config()
       //useNewUrlParser: true,
       //useUnifiedTopology: true,
       //useFindAndModify: false
-    }) */
+    })
 
 // Initialize DB
 
-require('./initDB')();
+//require('./initDB')();
 
 var session_middleware = require("./middlewares/session");
 
