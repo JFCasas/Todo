@@ -11,9 +11,9 @@ services:
     ports:
       - 3000:3000
     environment:
-      - MONGODB_URI= mongodb://mongo_db:27017
-      - DB_NAME= todo
-      - SECRET= hhshhshhhshhshshs
+      - MONGODB_URI=mongodb://mongo_db:27017
+      - DB_NAME=todo
+      - SECRET=hhshhshhhshhshshs
     depends_on:
       - mongo_db
 volumes:
