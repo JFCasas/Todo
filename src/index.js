@@ -22,7 +22,7 @@ require('dotenv').config()
 
 // Initialize DB
 
-require('./initDB')();
+require('./initDB/initDB')();
 
 var session_middleware = require("./middlewares/session");
 
